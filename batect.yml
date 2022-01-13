@@ -17,7 +17,7 @@ containers:
   db:
     image: postgres:alpine
     ports:
-      - 3432:3432
+      - 5432:5432
     volumes:
       - local: ./postgres-data
         container: /var/lib/postgresql/data
@@ -30,13 +30,19 @@ containers:
   db-test:
     image: postgres:alpine
     ports:
-      - 3432:3432
+      - 5432:5432
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: app
       POSTGRES_DB: db
 
 tasks:
+  # start dev db
+  start-dev-db:
+    description: Start dev database
+    run:
+      container: db
+
   # start postgres db for tests
   start-test-db:
     description: Start test database

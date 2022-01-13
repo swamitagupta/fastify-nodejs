@@ -1,3 +1,6 @@
+// This will add env variable to process.env
+require("dotenv").config();
+
 const PORT = process.env.PORT || 3000; // 5000 is the local port, to run locally
 
 const server = require("./src/app")({
