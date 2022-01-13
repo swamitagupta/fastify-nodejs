@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 5000; // 5000 is the local port, to run locally
+const PORT = process.env.PORT || 3000; // 5000 is the local port, to run locally
 
 const server = require("./src/app")({
   // call build function, add options
@@ -10,7 +10,7 @@ const server = require("./src/app")({
 
 const start = async () => {
   try {
-    await server.listen(PORT);
+    await server.listen(PORT, "0.0.0.0"); // default ip address
   } catch (error) {
     server.log.error(error);
     process.exit(1);
