@@ -1,2 +1,2 @@
-POSTGRES_URI=postgres://app:password@localhost:5432/db
+POSTGRES_URI=add postgres uri here
 PORT=8080
