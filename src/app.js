@@ -1,12 +1,14 @@
 const fastify = require('fastify'); // import fastify
 const db = require('./plugin/database');
 const testRoute = require('./route/tempTestRoute');
+const swaggerPg = require('./plugin/swagger');
 
 const build = (opts = {}) => {
   const app = fastify(opts); // initialise fastify app
 
   // register plugins
   app.register(db);
+  app.register(swaggerPg);
 
   // register routes
   app.register(testRoute, { prefix: 'api/v1/test' });
