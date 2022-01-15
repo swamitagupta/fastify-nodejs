@@ -62,6 +62,25 @@ tasks:
       container: build-fastify-env
       command: npm install # batect will install inside container
 
+  # run tests in CI mode
+  test-ci:
+    description: Run test case in CI Mode
+    run:
+      container: build-fastify-env
+      environment:
+        PORT: 8080
+        POSTGRES_URI: postgres://app:password@db-test/db
+      command: npm run test
+    dependencies:
+      - db-test
+
+  # run lint to find linting issues
+  lint:
+    description: Run lint
+    run:
+      container: build-fastify-env
+      command: npm run lint
+
   # task for running fastify app
   start-server:
     description: Run fastify app

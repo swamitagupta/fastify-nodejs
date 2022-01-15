@@ -10,5 +10,6 @@
   "parserOptions": {
     "ecmaVersion": 13
   },
-  "rules": {}
+  "rules": {},
+  "ignorePatterns": ["node_modules/", "migrations/"]
 }
