@@ -1,0 +1,22 @@
+name: Fastify Application
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install fastify dependencies
+        run: ./batect install-dep
+
+      - name: Run testcases
+        run: ./batect test-ci
+
+      - name: Perform linting
+        run: ./batect lint
