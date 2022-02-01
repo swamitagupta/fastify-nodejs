@@ -15,7 +15,7 @@ const build = (opts = {}) => {
 
   app.get('/', async (request, reply) => {
     // register route for get
-    reply.send({ hello: 'world!' }); // send to frontend
+    reply.send({ hello: 'world! ... with CD' }); // send to frontend
   });
 
   return app;
